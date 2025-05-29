@@ -1,0 +1,15 @@
+{
+  "name": "ecommerce-web-testing-cypress",
+  "version": "1.0.0",
+  "description": "Automated web testing for e-commerce application covering login, cart, and filter functionalities using Cypress and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.4.0"
+  }
+}
