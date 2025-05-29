@@ -18,35 +18,6 @@ This project is designed for **automated testing** of an e-commerce web applicat
 
 ---
 
-## 📂 Project Structure
-ecommerce-web-testing-cypress/
-├── cypress/
-│ ├── e2e/
-│ │ ├── auth/
-│ │ │ ├── login.cy.js
-│ │ │ ├── register.cy.js
-│ │ ├── cart/
-│ │ │ └── cart.cy.js
-│ │ ├── filters/
-│ │ │ └── filters.cy.js
-│ │ ├── order/
-│ │ │ └── checkout.cy.js
-│ │ ├── api/
-│ │ │ └── api.cy.js
-│ ├── fixtures/
-│ │ └── user.json
-│ ├── pageObjects/
-│ │ ├── LoginPage.js
-│ │ ├── RegisterPage.js
-│ │ ├── CartPage.js
-│ │ ├── CategoryFilterPage.js
-│ │ └── CheckoutPage.js
-├── .github/workflows/
-│ └── cypress.yml
-├── cypress.config.js
-├── package.json
-└── README.md
-
 ⚙️ CI/CD
 🔄 Tests are automatically executed in GitHub Actions on every pull request to main.
 📈 Allure reports are uploaded as artifacts and available for download.
