@@ -1,27 +1,13 @@
 class LoginPage {
-  visit() {
-    cy.visit('/');
-  }
-
-  fillEmail(email) {
-    cy.get('#loginusername').type(email);
-  }
-
-  fillPassword(password) {
-    cy.get('#loginpassword').type(password);
-  }
-
-  submit() {
-    cy.get('button[onclick="logIn()"]').click();
-  }
-
+  visit() { cy.visit('/'); }
+  fillUsername(username) { cy.get('#loginusername').type(username); }
+  fillPassword(password) { cy.get('#loginpassword').type(password); }
+  submitLogin() { cy.get('button[onclick="logIn()"]').click(); }
   assertLoginSuccess() {
     cy.get('#nameofuser', { timeout: 10000 }).should('contain.text', 'Welcome');
   }
-
   assertLoginFailure() {
-    cy.get('.modal-content').should('contain.text', 'Wrong password.');
+    cy.on('window:alert', (str) => expect(str).to.include('Wrong'));
   }
 }
-
-export default LoginPage;
+export default new LoginPage();

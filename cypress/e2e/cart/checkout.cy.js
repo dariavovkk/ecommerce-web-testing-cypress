@@ -1,13 +1,13 @@
-import CartPage from '../../pageObjects/CartPage'
+import CheckoutPage from '../../pageObjects/CheckoutPage';
 
-describe('Checkout Tests', () => {
-  it('Checkout and verify success', () => {
-    cy.visit('/')
-    cy.contains('Samsung galaxy s6').click()
-    cy.get('.btn-success').click()
-    cy.on('window:alert', () => true)
-    CartPage.visit()
-    CartPage.checkout()
-    CartPage.assertOrderSuccess()
-  })
-})
+describe('Checkout Process', () => {
+  beforeEach(() => {
+    cy.visit('/');
+    CheckoutPage.addProduct('Sony vaio i5');
+  });
+
+  it('should complete checkout', () => {
+    CheckoutPage.completeCheckout('Test User', 'USA', 'New York', '1234567890123456', '12', '2025');
+    CheckoutPage.assertCheckoutSuccess();
+  });
+});
