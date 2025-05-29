@@ -1,13 +1,21 @@
 class LoginPage {
-  visit() { cy.visit('/'); }
-  fillUsername(username) { cy.get('#loginusername').type(username); }
-  fillPassword(password) { cy.get('#loginpassword').type(password); }
-  submitLogin() { cy.get('button[onclick="logIn()"]').click(); }
-  assertLoginSuccess() {
-    cy.get('#nameofuser', { timeout: 10000 }).should('contain.text', 'Welcome');
+  visit() {
+    cy.visit('/');
+  }
+  fillUsername(username) {
+    cy.get('#loginusername').clear().type(username);
+  }
+  fillPassword(password) {
+    cy.get('#loginpassword').clear().type(password);
+  }
+  submitLogin() {
+    cy.get('button[onclick="logIn()"]').click();
   }
   assertLoginFailure() {
-    cy.on('window:alert', (str) => expect(str).to.include('Wrong'));
+    cy.on('window:alert', (str) => {
+      expect(str).to.include('Wrong password.');
+    });
   }
 }
+
 export default new LoginPage();

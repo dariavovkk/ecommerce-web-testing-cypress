@@ -10,7 +10,6 @@ This project is designed for **automated testing** of an e-commerce web applicat
 - 🛒 Shopping cart functionality
 - 🔍 Product filters
 - 📦 Order placement
-- 🌐 API testing
 
 ✅ Organized using the Page Object Model  
 ✅ Allure reporting for enhanced test analytics  
