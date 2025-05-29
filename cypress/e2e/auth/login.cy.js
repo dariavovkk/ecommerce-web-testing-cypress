@@ -1,23 +1,24 @@
-import LoginPage from '../../pageObjects/LoginPage'
+import LoginPage from '../../pageObjects/LoginPage';
 
 describe('Login Tests', () => {
   beforeEach(() => {
-    cy.fixture('user').as('userData')
-  })
+    LoginPage.visit();
+    cy.get('#login2').click();
+  });
 
-  it('Successful login', function() {
-    LoginPage.visit()
-    LoginPage.fillEmail(this.userData.email)
-    LoginPage.fillPassword(this.userData.password)
-    LoginPage.submit()
-    LoginPage.assertLoginSuccess()
-  })
+  it('should login successfully', () => {
+    cy.fixture('user').then((user) => {
+      LoginPage.fillUsername(user.username);
+      LoginPage.fillPassword(user.password);
+      LoginPage.submitLogin();
+      LoginPage.assertLoginSuccess();
+    });
+  });
 
-  it('Failed login', () => {
-    LoginPage.visit()
-    LoginPage.fillEmail('wronguser')
-    LoginPage.fillPassword('wrongpass')
-    LoginPage.submit()
-    LoginPage.assertLoginFailure()
-  })
-})
+  it('should show error for invalid login', () => {
+    LoginPage.fillUsername('invaliduser');
+    LoginPage.fillPassword('wrongpassword');
+    LoginPage.submitLogin();
+    LoginPage.assertLoginFailure();
+  });
+});
