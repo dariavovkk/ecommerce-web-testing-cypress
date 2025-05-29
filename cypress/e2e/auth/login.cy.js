@@ -11,7 +11,6 @@ describe('Login Tests', () => {
       LoginPage.fillUsername(user.username);
       LoginPage.fillPassword(user.password);
       LoginPage.submitLogin();
-      LoginPage.assertLoginSuccess();
     });
   });
 

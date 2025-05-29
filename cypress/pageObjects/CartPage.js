@@ -4,16 +4,12 @@ class CartPage {
     cy.contains('Add to cart').click();
     cy.go('back');
   }
-  removeProduct(name) {
-    cy.get('#cartur').click();
-    cy.contains('Delete').click();
-  }
   assertProductInCart(name) {
-    cy.get('#cartur').click();
+    cy.get('#tbodyid').click();
     cy.contains(name).should('exist');
   }
   assertProductNotInCart(name) {
-    cy.get('#cartur').click();
+    cy.get('#tbodyid').click();
     cy.contains(name).should('not.exist');
   }
 }
